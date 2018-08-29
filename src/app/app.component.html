@@ -1,7 +1,7 @@
 <div class="parent">
   <div class="wrapper">
     <div dragula="draggable" ng-model="items">
-      <div *ngFor="let item of items" class="item">{{ item.caption }}</div>
+      <div *ngFor="let item of items" class="item">{{ '☰ ' + item.id + ' | ' + item.caption + ' | ' + item.type + ' 👾'}}</div>
     </div>
   </div>
 </div>

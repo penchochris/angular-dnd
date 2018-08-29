@@ -17,7 +17,6 @@ export class AppComponent {
     fetch(url)
       .then(blob => blob.json())
       .then(data => this.items = data.form)
-
   }
 
   public constructor(private dragulaService: DragulaService) {
