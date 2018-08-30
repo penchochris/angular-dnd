@@ -1,29 +1,4 @@
-@media only screen and (max-width: 600px) {
-  :host {
-    .header {
-      height: 30px;
-    }
-    .draggable {
-      height: 1fr;
-      width: 100%;
-    }
-    .its_draggable {
-      height: 10px;
-    }
-  } 
-}
 
-@media only screen and (orientation: portrait) {
-  :host {
-    .draggable {
-      max-height: 10vh;
-    }
-
-    .its_draggable {
-      max-height: 10%
-    }
-  }
-}
 
 :host {
 
@@ -42,7 +17,8 @@
   }
 
   .draggable {
-    max-height: 85vh;
+    max-height: 95vh;
+    max-width: 85vh;
     height: auto;
     overflow-y: scroll;
     display: block;
@@ -61,11 +37,37 @@
   }
 
   .its_draggable {
+    max-width: 85vh;
     color: red;
     text-align: right;
     font-size: 12px;
     max-height: 5vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 7px;
   }
 }
 
+@media only screen and (max-width: 600px) {
+  :host {
+    .header {
+      height: 30px;
+    }
 
+    .draggable {
+      max-height: 90vh;
+    }
+  } 
+}
+
+@media (max-height: 400px) and (orientation: landscape) {
+  :host {
+    .draggable {
+      width: 100%;
+      max-width: 100%;
+    }
+    .its_draggable {
+      max-width: 100%;
+    }
+  }
+}
