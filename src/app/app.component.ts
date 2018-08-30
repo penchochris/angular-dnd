@@ -1,6 +1,9 @@
 import { Component } from "@angular/core";
 import { DragulaService } from "ng2-dragula";
 
+var dragula = require('dragula'),
+autoScroll = require('dom-autoscroller');
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -25,13 +28,37 @@ export class AppComponent {
     return str;
   }
 
+  preventScroll() {
+    window.addEventListener( 'touchmove', function() {})
+  }
+
+  scrollOnBorder() {
+    var drake = dragula(document.querySelector('.draggable'));
+
+    var scroll = autoScroll([
+            window,
+            document.querySelector('.wrapper')
+        ],{
+        margin: 20,
+        maxSpeed: 20,
+        syncMove: true,
+        autoScroll: function(){
+            return this.down && drake.dragging;
+        }
+    });
+
+  }
+
   ngOnInit() {
+
+    
+    this.scrollOnBorder();
+
     const url = 'http://www.mocky.io/v2/59f7760a2f0000ab1d55864e';
 
     fetch(url)
       .then(blob => blob.json())
       .then(data => {
-
         const date = new Date(data.lastChangedDate);
 
         this.items = data.form;
