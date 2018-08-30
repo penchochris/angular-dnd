@@ -1,0 +1,36 @@
+:host .item {
+  background: #fafafa;
+  border: 1px solid black;
+  padding: 10px 20px;
+}
+
+:host .wrapper {
+  max-height: 100vh;
+}
+
+@media only screen and (min-width: 600px) {
+  :host .draggable {
+    width: 80%;
+  }
+}
+
+:host .header {
+  min-height: 5vh;
+  div {
+    display: inline;
+    padding: 0 10px;
+  }
+}
+
+:host .draggable {
+  max-height: 90vh;
+  height: auto;
+  overflow-y: scroll;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+  .item {
+    width: 1fr;
+  }
+}
